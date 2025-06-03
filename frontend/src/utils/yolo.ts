@@ -1,5 +1,7 @@
 import * as tf from '@tensorflow/tfjs';
 import type { Alert } from '../types/alert';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -142,7 +144,7 @@ export async function runYOLOOnFrame(imageData: ImageData, timestamp: number): P
 
 
   return {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     timestamp: new Date(Date.now() + timestamp * 1000).toISOString(),
     type: triggeredTypes.join(', '),
     message: `Triggered ${triggeredTypes.join(', ')}`,

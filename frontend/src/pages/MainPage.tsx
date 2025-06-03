@@ -54,7 +54,7 @@ export default function MainPage() {
 
         try {
             // await fetch("http://localhost:4000/alerts", { method: "DELETE" });
-            await fetch("`${baseURL}/alerts", { method: "DELETE" });
+            await fetch(`${baseURL}/alerts`, { method: "DELETE" });
             console.log("🧹 Cleared old alerts from database");
         } catch (error) {
             console.error("❌ Failed to clear old alerts:", error);
@@ -86,7 +86,7 @@ export default function MainPage() {
                         // ⬇️ Send to backend
                         try {
                             // await fetch("http://localhost:4000/alerts", {
-                            await fetch("`${baseURL}/alerts", {
+                            await fetch(`${baseURL}/alerts`, {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export default function MainPage() {
 
         try {
             // const res = await fetch("http://localhost:4000/alerts");
-            const res = await fetch("`${baseURL}/alerts");
+            const res = await fetch(`${baseURL}/alerts`);
 
             const dbAlerts = await res.json();
 
